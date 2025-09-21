@@ -1,35 +1,44 @@
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 dotenv.config();
 
-import app from "./routes/app";
-import localtunnel from 'localtunnel';
+import express from "express";
+import AiTemplate from "./Template/v1/Ai.template";
+import GeminiUtils from "./api/Ai-model/Google/Google.utils";
 
-console.log('APP_ENV from process.env:', process.env.APP_ENV);
+const app = express();
 
-const PORT = process.env.PORT || 3000;
-const APP_ENV = process.env.APP_ENV || 'development';
-console.log('Final APP_ENV value:', APP_ENV);
+const PORT = Number(process.env.PORT) || 3000;
+const APP_ENV = process.env.APP_ENV || "development";
+const HOST = APP_ENV === "development" ? "localhost" : "0.0.0.0";
 
-const HOST = APP_ENV === 'development' ? 'localhost' : '0.0.0.0';
+app.get("/", (_req, res) => {
+  res.send("Hello from LocalMind backend!");
+});
 
-app.listen(Number(PORT), HOST, async () => {
-    console.log(`Server is running in ${APP_ENV} mode`);
-    console.log(`Server listening on ${HOST}:${PORT}`);
+(async () => {
+  try {
+    const promptTemplate = await AiTemplate.getPromptTemplate();
 
-    if (APP_ENV !== 'development') {
-        console.log('Server is exposed to external connections');
-    } else {
-        console.log('Server is only accessible locally');
+    const geminiUtils = new GeminiUtils();
 
-        try {
-            const tunnel = await localtunnel({ port: Number(PORT) });
-            console.log(`🌐 localtunnel established at: ${tunnel.url}`);
-            
-            tunnel.on('close', () => {
-                console.log('Tunnel closed');
-            });
-        } catch(err) {
-            console.error('Failed to start localtunnel:', err);
-        }
-    }
+
+    const response = await geminiUtils.generateResponse(promptTemplate, {
+      userName: "Abhishek Gupta",
+      userPrompt: "What is the capital of France?",
+    });
+
+    console.log(response);
+  } catch (error) {
+    console.error("Error during AI response generation:", error);
+  }
+})();
+
+app.listen(PORT, HOST, () => {
+  console.log(`🚀 Server running in ${APP_ENV} mode at http://${HOST}:${PORT}`);
+
+  if (APP_ENV === "development") {
+    console.log("🔒 Local-only access enabled (via localhost)");
+  } else {
+    console.log("🌍 Production mode — server is exposed externally");
+  }
 });
