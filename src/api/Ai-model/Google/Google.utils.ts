@@ -2,36 +2,42 @@ import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
 import { LangchainPromptTemplate } from "../../../Template/v1/Ai.template";
 import { env } from "../../../constant/env.constant";
 
+interface GeminiUtilsOptions {
+  modelName?: string;
+  temperature?: number;
+  maxOutputTokens?: number;
+}
+
 class GeminiUtils {
   private model: ChatGoogleGenerativeAI;
+  public modelName: string;
+  public temperature: number;
+  public maxOutputTokens: number;
 
-  constructor() {
+  constructor(options: GeminiUtilsOptions = {}) {
+    this.modelName = options.modelName || "gemini-2.5-pro";
+    this.temperature = options.temperature ?? 0.7;
+    this.maxOutputTokens = options.maxOutputTokens ?? 2048;
+
     this.model = new ChatGoogleGenerativeAI({
       apiKey: env.GOOGLE_API_KEY || "",
-      model: "gemini-2.5-pro",
-      temperature: 0.7,
-      
-      maxOutputTokens: 2048,
+      model: this.modelName,
+      temperature: this.temperature,
+      maxOutputTokens: this.maxOutputTokens,
     });
   }
 
-  // Function to generate AI response with system prompt and Langchain prompt template
   async generateResponse(
-    promptTemplate: LangchainPromptTemplate, // Pass Langchain prompt template
-    inputValues: Record<string, any> = {} // User input (e.g., name, question)
+    promptTemplate: LangchainPromptTemplate,
+    inputValues: Record<string, any> = {},
   ): Promise<string> {
     try {
-   
       const formattedPrompt = await promptTemplate.format(inputValues);
-     
-   
-      const response = await this.model.invoke(formattedPrompt)
+      const response = await this.model.invoke(formattedPrompt);
 
-      
       if (typeof response === "object" && "content" in response) {
         return (response as any).content;
       }
-
       return response as string;
     } catch (error) {
       console.error("GeminiService Error:", error);

@@ -19,12 +19,15 @@ app.get("/", (_req, res) => {
   try {
     const promptTemplate = await AiTemplate.getPromptTemplate();
 
-    const geminiUtils = new GeminiUtils();
-
+    const geminiUtils = new GeminiUtils({
+      modelName: "gemini-2.5-pro",
+      maxOutputTokens: 2048,
+      temperature: 0.7,
+    });
 
     const response = await geminiUtils.generateResponse(promptTemplate, {
       userName: "Abhishek Gupta",
-      userPrompt: "What is the capital of France?",
+      userPrompt: "Capital of India",
     });
 
     console.log(response);
