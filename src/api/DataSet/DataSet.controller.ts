@@ -16,9 +16,9 @@ class DataSetController {
 
       console.log("Loaded Documents:", documents);
 
-      SendResponse.success(res, "ff", documents, 200);
+    
     } catch (error: any) {
-      SendResponse.error(res, error.message || "Failed to upload dataset");
+      
     }
   }
 }
