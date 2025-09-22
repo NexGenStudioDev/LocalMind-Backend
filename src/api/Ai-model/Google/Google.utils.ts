@@ -10,9 +10,11 @@ interface GeminiUtilsOptions {
 
 class GeminiUtils {
   private model: ChatGoogleGenerativeAI;
-  public modelName: string;
-  public temperature: number;
-  public maxOutputTokens: number;
+  private modelName: string;
+  private  temperature: number;
+  private  maxOutputTokens: number;
+  // public 
+
 
   constructor(options: GeminiUtilsOptions = {}) {
     this.modelName = options.modelName || "gemini-2.5-pro";
@@ -22,6 +24,9 @@ class GeminiUtils {
     this.model = new ChatGoogleGenerativeAI({
       apiKey: env.GOOGLE_API_KEY || "",
       model: this.modelName,
+      maxRetries: 1,
+      streamUsage: false,
+      
       temperature: this.temperature,
       maxOutputTokens: this.maxOutputTokens,
     });
@@ -34,7 +39,6 @@ class GeminiUtils {
     try {
       const formattedPrompt = await promptTemplate.format(inputValues);
       const response = await this.model.invoke(formattedPrompt);
-
       if (typeof response === "object" && "content" in response) {
         return (response as any).content;
       }
