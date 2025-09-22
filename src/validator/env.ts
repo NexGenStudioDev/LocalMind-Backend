@@ -35,7 +35,7 @@ export const EnvSchema = z.object({
 
   REDIS_HOST: z.string(),
   REDIS_PORT: z.string(),
-  REDIS_PASSWORD: z.string().optional(),
+  REDIS_PASSWORD: z.string(),
 
   UPLOAD_DIR: z.string(),
   TEMP_DIR: z.string(),

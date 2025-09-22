@@ -1,11 +1,12 @@
-import dotenv from "dotenv";
-dotenv.config();
+import { env } from "./constant/env.constant";
+import mongooseConection from "./config/mongoose.connection";
 import app from "./routes/app";
 
 
 
-const PORT = Number(process.env.PORT) || 3000;
-const APP_ENV = process.env.APP_ENV || "development";
+
+const PORT = Number(env.PORT) || 3000;
+const APP_ENV = env.APP_ENV || "development";
 const HOST = APP_ENV === "development" ? "localhost" : "0.0.0.0";
 
 app.get("/", (_req, res) => {
@@ -15,6 +16,7 @@ app.get("/", (_req, res) => {
 app.listen(PORT, HOST, () => {
   console.log(`🚀 Server running in ${APP_ENV} mode at http://${HOST}:${PORT}`);
 
+  mongooseConection();
   if (APP_ENV === "development") {
     console.log("🔒 Local-only access enabled (via localhost)");
   } else {
