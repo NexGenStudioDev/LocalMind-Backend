@@ -11,10 +11,9 @@ interface GeminiUtilsOptions {
 class GeminiUtils {
   private model: ChatGoogleGenerativeAI;
   private modelName: string;
-  private  temperature: number;
-  private  maxOutputTokens: number;
-  // public 
-
+  private temperature: number;
+  private maxOutputTokens: number;
+  // public
 
   constructor(options: GeminiUtilsOptions = {}) {
     this.modelName = options.modelName || "gemini-2.5-pro";
@@ -26,7 +25,7 @@ class GeminiUtils {
       model: this.modelName,
       maxRetries: 1,
       streamUsage: false,
-      
+
       temperature: this.temperature,
       maxOutputTokens: this.maxOutputTokens,
     });

@@ -1,9 +1,9 @@
 import { env } from "./constant/env.constant";
-import express from "express";
 import mongooseConection from "./config/mongoose.connection";
 import app from "./routes/app";
 
-mongooseConection();
+
+
 
 const PORT = Number(env.PORT) || 3000;
 const APP_ENV = env.APP_ENV || "development";
@@ -16,6 +16,7 @@ app.get("/", (_req, res) => {
 app.listen(PORT, HOST, () => {
   console.log(`🚀 Server running in ${APP_ENV} mode at http://${HOST}:${PORT}`);
 
+  mongooseConection();
   if (APP_ENV === "development") {
     console.log("🔒 Local-only access enabled (via localhost)");
   } else {
