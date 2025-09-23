@@ -5,6 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-tunnel": "lt --port 5000",
+    "setup:backend": "ts-node src/script/project-setup.ts",
     "format": "prettier --write .",
     "build": "tsc",
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts"
@@ -33,20 +34,21 @@
     "@langchain/core": "^0.3.77",
     "@langchain/google-genai": "^0.2.18",
     "@langchain/ollama": "^0.2.4",
-    "@types/mongoose": "^5.11.97",
-    "d3-dsv": "2",
-
     "@types/jsonwebtoken": "^9.0.10",
+    "@types/mongoose": "^5.11.97",
     "@types/morgan": "^1.9.10",
+    "chalk": "^5.6.2",
+    "cloudflared-tunnel": "^1.0.3",
+    "d3-dsv": "2",
     "dotenv": "^17.2.2",
     "express": "^5.1.0",
+    "figlet": "^1.9.3",
     "jsonwebtoken": "^9.0.2",
     "langchain": "^0.3.34",
-    "mongoose": "^8.18.1",
-
     "mongoose": "^8.18.2",
     "morgan": "^1.10.1",
     "ngrok": "5.0.0-beta.2",
+    "ora": "^9.0.0",
     "zod": "^4.1.11"
   }
 }
