@@ -10,12 +10,6 @@ app.get("/", (_req, res) => {
   res.send("Hello from LocalMind backend!");
 });
 
-
-
-
-
-
-
 app.listen(PORT, HOST, () => {
   console.log(`🚀 Server running in ${APP_ENV} mode at http://${HOST}:${PORT}`);
 

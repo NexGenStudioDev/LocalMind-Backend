@@ -2,7 +2,7 @@ import AiTemplate from "../../../Template/v1/Ai.template";
 import GeminiUtils from "./Google.utils";
 
 class GoogleService {
-  async ChatWithGoogleAI(prompt: string ): Promise<any> {
+  async ChatWithGoogleAI(prompt: string): Promise<any> {
     try {
       const promptTemplate = await AiTemplate.getPromptTemplate();
 
@@ -17,7 +17,7 @@ class GoogleService {
         userPrompt: prompt,
       });
 
-      return response;
+      return JSON.parse(response);
     } catch (error) {
       console.error("Error in ChatWithGoogleAI:", error);
       throw error;
