@@ -1,6 +1,7 @@
 import { Response } from "express";
 
 export class SendResponse {
+
     
   static success(res: Response, message: string, data: any, status = 200) {
 
