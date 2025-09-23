@@ -8,4 +8,9 @@ router.post(
     userController.register
 )
 
+router.post(
+    "/v1/user/login",
+    userController.login
+)
+
 export {router as userRoutes};
