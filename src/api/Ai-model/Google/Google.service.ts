@@ -17,7 +17,7 @@ class GoogleService {
         userPrompt: prompt,
       });
 
-      return response;
+      return JSON.parse(response);
     } catch (error) {
       console.error("Error in ChatWithGoogleAI:", error);
       throw error;

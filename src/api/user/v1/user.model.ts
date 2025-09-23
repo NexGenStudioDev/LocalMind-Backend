@@ -17,6 +17,11 @@ const userSchema: Schema<IUser> = new Schema<IUser>(
     password: {
       type: String,
       required: true,
+      select: false,
+    },
+    role:{
+      type: String,
+      default: "user"
     },
     apikey: {
       type: String,
@@ -26,9 +31,9 @@ const userSchema: Schema<IUser> = new Schema<IUser>(
       type: String,
       default: null,
     },
-    modelApiKey:{
-        type: String,
-        default: null,
+    modelApiKey: {
+      type: String,
+      default: null,
     },
   },
   { timestamps: true },
