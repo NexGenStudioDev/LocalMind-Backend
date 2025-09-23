@@ -12,6 +12,7 @@ class UserController {
       const validatedData = userRegisterSchema.parse(req.body);
 
       const user = await userService.createUser(validatedData);
+
       const userObj: IUser = user.toObject();
       delete (userObj as { password?: string }).password;
       delete (userObj as { createdAt?: Date }).createdAt;
@@ -32,6 +33,7 @@ class UserController {
     } catch (err : any) {
       if (err instanceof ZodError) {
         SendResponse.error(res,"Error occur here", 500, err)
+
       } else {
         SendResponse.error(res, err.message, 500);
       }

@@ -3,6 +3,7 @@ import { IUser } from "./user.type";
 import UserUtils from "./user.utils";
 
 class userService {
+
     async createUser (data: IUser) {
       if(!data.password) throw new Error("password require!")
       const hashPassword = await UserUtils.passwordHash(data.password);
@@ -12,5 +13,6 @@ class userService {
       });
       return user; 
     }
+
 }
 export default new userService();
