@@ -16,6 +16,8 @@ class DataSetController {
 
       console.log("Loaded Documents:", documents);
 
+      SendResponse.success(res, "Dataset uploaded and processed successfully", documents);
+
     
     } catch (error: any) {
       
