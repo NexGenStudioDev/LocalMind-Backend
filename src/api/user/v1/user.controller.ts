@@ -10,10 +10,10 @@ class UserController {
       const validatedData = userRegisterSchema.parse(req.body);
 
       const user = await userService.createUser(validatedData);
-      SendResponse.success(res,"data send Successully", user, 201)
-    } catch (err : any) {
+      SendResponse.success(res, "data send Successully", user, 201);
+    } catch (err: any) {
       if (err instanceof ZodError) {
-        SendResponse.error(res,"data send Successully", 500, err)
+        SendResponse.error(res, "data send Successully", 500, err);
       } else {
         SendResponse.error(res, err.message, 500);
       }

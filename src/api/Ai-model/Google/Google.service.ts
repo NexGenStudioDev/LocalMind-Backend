@@ -2,7 +2,7 @@ import AiTemplate from "../../../Template/v1/Ai.template";
 import GeminiUtils from "./Google.utils";
 
 class GoogleService {
-  async ChatWithGoogleAI(prompt: string ): Promise<any> {
+  async ChatWithGoogleAI(prompt: string): Promise<any> {
     try {
       const promptTemplate = await AiTemplate.getPromptTemplate();
 

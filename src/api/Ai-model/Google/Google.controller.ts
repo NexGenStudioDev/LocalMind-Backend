@@ -9,7 +9,9 @@ class Google_Controller {
     try {
       let { Prompt } = req.body;
 
-      let Ai_Response = GoogleService.ChatWithGoogleAI(Prompt);
+      let Ai_Response = await GoogleService.ChatWithGoogleAI(Prompt);
+
+      console.log("AI_Response:", Ai_Response);
 
       SendResponse.success(
         res,

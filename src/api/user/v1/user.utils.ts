@@ -32,7 +32,7 @@ class UserUtils {
 
       return null;
     } catch {
-      return null; 
+      return null;
     }
   }
 }

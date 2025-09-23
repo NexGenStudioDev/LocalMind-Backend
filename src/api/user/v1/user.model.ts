@@ -1,7 +1,6 @@
 import mongoose, { Schema, Document, Model } from "mongoose";
 import { IUser } from "./user.type";
 
-
 const userSchema: Schema<IUser> = new Schema<IUser>(
   {
     name: {
@@ -26,9 +25,9 @@ const userSchema: Schema<IUser> = new Schema<IUser>(
       type: String,
       default: null,
     },
-    modelApiKey:{
-        type: String,
-        default: null,
+    modelApiKey: {
+      type: String,
+      default: null,
     },
   },
   { timestamps: true },
