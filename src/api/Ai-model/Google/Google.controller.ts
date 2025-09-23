@@ -11,8 +11,6 @@ class Google_Controller {
 
       let Ai_Response = await GoogleService.ChatWithGoogleAI(Prompt);
 
-      console.log("AI_Response:", Ai_Response);
-
       SendResponse.success(
         res,
         "AI response generated successfully",

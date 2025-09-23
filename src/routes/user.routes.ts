@@ -5,4 +5,11 @@ const router: Router = Router();
 
 router.post("/v1/user/register", userController.register);
 
-export { router as userRoutes };
+
+router.post(
+    "/v1/user/login",
+    userController.login
+)
+
+export {router as userRoutes};
+

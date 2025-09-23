@@ -16,6 +16,11 @@ const userSchema: Schema<IUser> = new Schema<IUser>(
     password: {
       type: String,
       required: true,
+      select: false,
+    },
+    role:{
+      type: String,
+      default: "user"
     },
     apikey: {
       type: String,
