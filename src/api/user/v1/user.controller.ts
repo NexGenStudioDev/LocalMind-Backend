@@ -49,6 +49,16 @@ class UserController {
       SendResponse.error(res,"error in fetching user", 404);
     }
   }
+
+  async profile(req: Request, res: Response): Promise<void> {
+    try{
+      const {email} = req.user as IUser;
+      const user = await UserUtils.findEmail(email);
+      SendResponse.success(res, "data send Successfuly", user, 200);
+    } catch (err :any){
+      SendResponse.error(res, "data send Successfully", 500, err.message);
+    }
+  }
 }
 
 export default new UserController();
