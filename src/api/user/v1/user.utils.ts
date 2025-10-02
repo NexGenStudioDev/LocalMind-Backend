@@ -26,7 +26,6 @@ class UserUtils {
 
       if (typeof decoded === "object" && decoded !== null) {
         return {
-          name: decoded.name as string,
           email: decoded.email as string,
         };
       }
@@ -39,7 +38,9 @@ class UserUtils {
 
   public static async findByEmailandCheckPassword(data: IUser) {
     try {
-      const user = await User.findOne({ email: data.email }).select("+password");
+      const user = await User.findOne({ email: data.email }).select(
+        "+password",
+      );
       if (!user) {
         throw new Error("User not found");
       }
@@ -69,7 +70,7 @@ class UserUtils {
         role: user.role,
       });
 
-      return {userObj,token};
+      return { userObj, token };
     } catch (err: any) {
       if (err instanceof Error) {
         throw err;
@@ -78,8 +79,19 @@ class UserUtils {
     }
   }
 
-  public static async passwordHash(password: string): Promise<string>{
+  public static async passwordHash(password: string): Promise<string> {
     return await argon2.hash(password);
+  }
+
+  public static async findEmail(email: string): Promise<Partial<IUser> | null> {
+    const user = await User.findOne({ email });
+    if (!user) return null;
+    const userObj = user.toObject() as IUser;
+    delete (userObj as { password?: string }).password;
+    delete (userObj as { createdAt?: Date }).createdAt;
+    delete (userObj as { updatedAt?: Date }).updatedAt;
+    delete (userObj as { __v?: number }).__v;
+    return userObj;
   }
 
   private static async passwordMatching({
@@ -94,3 +106,5 @@ class UserUtils {
 }
 
 export default UserUtils;
+
+// _id => sha256
