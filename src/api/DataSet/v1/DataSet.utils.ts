@@ -1,7 +1,7 @@
-import * as fs from 'fs';
-import * as path from 'path';
+import * as fs from "fs";
+import * as path from "path";
 import { PromptTemplate } from "@langchain/core/prompts";
-import { LangchainPromptTemplate } from '../../../Template/v1/Ai.template';
+import { LangchainPromptTemplate } from "../../../Template/v1/Ai.template";
 
 class DatasetUtils {
   async Prepare_PromptTemplate(): Promise<any> {
@@ -18,10 +18,8 @@ class DatasetUtils {
         .replace(/({)(?!userName\}|userPrompt\})/g, "{{")
         .replace(/(?<!\{userName|userPrompt)(})/g, "}}");
 
-    
-      let Prompt =  PromptTemplate.fromTemplate(promptText);
+      let Prompt = PromptTemplate.fromTemplate(promptText);
 
-      
       return Prompt;
     } catch (error) {
       console.error("Error in Prepate_Prompt:", error);

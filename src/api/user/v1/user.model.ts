@@ -18,9 +18,9 @@ const userSchema: Schema<IUser> = new Schema<IUser>(
       required: true,
       select: false,
     },
-    role:{
+    role: {
       type: String,
-      default: "user"
+      default: "user",
     },
     apikey: {
       type: String,

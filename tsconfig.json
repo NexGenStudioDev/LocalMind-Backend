@@ -2,15 +2,13 @@
   "compilerOptions": {
     "rootDir": "./src",
     "outDir": "./dist",
-    "module": "commonjs",
+    "module": "CommonJS",
     "target": "es2022",
     "lib": ["es2022"],
-    "typeRoots": ["./node_modules/@types", "./types"],
 
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
-
     "moduleResolution": "node",
     "esModuleInterop": true,
     "resolveJsonModule": true,

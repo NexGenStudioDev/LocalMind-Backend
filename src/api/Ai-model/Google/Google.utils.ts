@@ -11,6 +11,7 @@ interface GeminiUtilsOptions {
 class GeminiUtils {
   private model: ChatGoogleGenerativeAI;
   private modelName: string;
+  private apiKey!: string;
   private temperature: number;
   private maxOutputTokens: number;
   // public
@@ -21,7 +22,7 @@ class GeminiUtils {
     this.maxOutputTokens = options.maxOutputTokens ?? 2048;
 
     this.model = new ChatGoogleGenerativeAI({
-      apiKey: env.GOOGLE_API_KEY || "",
+      apiKey: this.apiKey || env.GOOGLE_API_KEY,
       model: this.modelName,
       maxRetries: 1,
       streamUsage: false,
