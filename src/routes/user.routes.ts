@@ -21,5 +21,11 @@ router.get(
     userController.profile
 )
 
+router.get(
+    "/v1/user/get-api-key",
+    userMiddleware.middleware,
+    userController.apiEndPointCreater
+)
+
 export {router as userRoutes};
 
