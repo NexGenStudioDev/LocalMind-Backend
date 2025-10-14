@@ -64,6 +64,15 @@ class UserController {
       SendResponse.error(res, "data send Successfully", 500, err.message);
     }
   }
+
+  async apiEndPointCreater ( req: Request, res: Response): Promise<void> {
+    try {
+      const apiKey: string | undefined = await userService.apiKeyCreater(req.user as IUser);
+      SendResponse.success(res, "data send Successfuly", apiKey, 200);
+    } catch (err : any){
+      SendResponse.error(res, "data send Successfully", 500, err.message);
+    }
+  }
 }
 
 export default new UserController();

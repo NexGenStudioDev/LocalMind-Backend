@@ -106,5 +106,3 @@ class UserUtils {
 }
 
 export default UserUtils;
-
-// _id => sha256
