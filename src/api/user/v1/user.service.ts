@@ -45,5 +45,6 @@ class userService {
       throw new Error(err.message);
     }
   }
+
 }
 export default new userService();
