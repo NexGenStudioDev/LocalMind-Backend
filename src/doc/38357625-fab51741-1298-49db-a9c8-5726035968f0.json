@@ -29,7 +29,7 @@
 								},
 								{
 									"key": "model",
-									"value": "",
+									"value": "gemma:2b",
 									"type": "text",
 									"uuid": "6e722a85-306e-4186-9cdf-c61286544ecc"
 								}
