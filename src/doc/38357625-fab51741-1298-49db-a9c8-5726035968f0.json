@@ -16,8 +16,35 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "prompt",
+									"value": "Whart is C++",
+									"type": "text",
+									"uuid": "a2f22c50-e8c1-4bf5-8ff6-01aa10df657e"
+								},
+								{
+									"key": "model",
+									"value": "",
+									"type": "text",
+									"uuid": "6e722a85-306e-4186-9cdf-c61286544ecc"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/chat-with-ollama",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"chat-with-ollama"
+							]
+						},
 						"description": "\nThis API lets you chat with AI models like `llama3` or `mistral` using [Ollama](https://ollama.com).  \nJust send a prompt and get a smart response from the model.\n\n> 🔧 **Before using this API, make sure the model is installed on your system using Ollama.**\n\n### Example:\n```bash\nollama run llama3\n```"
 					},
 					"response": []
