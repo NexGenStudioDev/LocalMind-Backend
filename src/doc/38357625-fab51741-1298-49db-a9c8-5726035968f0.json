@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "38357625-fab51741-1298-49db-a9c8-5726035968f0",
 		"name": "LocalMind Api",
+		"description": "LocalMind is a free, open-source platform made for students, developers, and anyone who wants to use AI without paying expensive fees or worrying about usage limits. notionvc: d4b09e72-493d-4a46-90ca-f316ed8444af\n\nWith LocalMind, you can run powerful AI models directly on your computer (like Mistral or LLaMA) or connect to cloud models (like Gemini) using your own API key — which is stored safely on your device. You can even upload Excel files to teach your AI more things, and expose your local port so others can access your AI too! notionvc: bb99df7a-7100-4b2a-a93b-0614713c0f93",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
