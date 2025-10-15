@@ -10,6 +10,7 @@ class GoogleService {
         modelName: "gemini-1.5-flash",
         maxOutputTokens: 1000,
         temperature: 0.7,
+        
       });
 
       const response = await geminiUtils.generateResponse(promptTemplate, {

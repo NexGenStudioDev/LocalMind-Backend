@@ -13,8 +13,9 @@ class UserMiddleware {
         ? req.headers["authorization"][0]
         : req.headers["authorization"];
 
-        const token: string | undefined =
-        (req.cookies && (req.cookies as any).userToken) || rawAuth?.split(" ")[1];
+      const token: string | undefined =
+        (req.cookies && (req.cookies as any).userToken) ||
+        rawAuth?.split(" ")[1];
       if (!token) {
         SendResponse.error(res, "Token missing", 401);
         return;

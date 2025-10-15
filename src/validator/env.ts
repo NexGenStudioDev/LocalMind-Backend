@@ -8,7 +8,11 @@ export const EnvSchema = z.object({
     .string()
     .transform((v) => v === "true")
     .default(true),
+  Your_Name: z.string(),
+  YOUR_EMAIL: z.email(),
+  YOUR_PASSWORD: z.string(),
   LOG_LEVEL: z.string().default("debug"),
+  GROQ_API_KEY: z.string(),
 
   CORS_ENABLED: z
     .string()
@@ -43,5 +47,9 @@ export const EnvSchema = z.object({
 
   ENCRYPTION_KEY: z.string(),
 
-  GOOGLE_API_KEY: z.string(),
+  SERVER_HMAC_SECRET: z.string(),
+
+  GOOGLE_API_KEY: z.string().optional(),
+  OPENAI_API_KEY: z.string().optional(),
+  BACKEND_URL: z.string().default("http://localhost:5000"),
 });

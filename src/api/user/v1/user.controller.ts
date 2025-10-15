@@ -9,6 +9,10 @@ import { IUser } from "./user.type";
 class UserController {
   async register(req: Request, res: Response): Promise<void> {
     try {
+      // check already user exist
+
+      // cpde
+
       const validatedData = userRegisterSchema.parse(req.body);
 
       const user = await userService.createUser(validatedData);
@@ -30,32 +34,42 @@ class UserController {
         { userObj, token },
         201,
       );
-    } catch (err : any) {
+    } catch (err: any) {
       if (err instanceof ZodError) {
-        SendResponse.error(res,"Error occur here", 500, err)
-
+        SendResponse.error(res, "Error occur here", 500, err);
       } else {
         SendResponse.error(res, err.message, 500);
       }
     }
   }
 
-  async login(req: Request, res: Response): Promise<void>{
+  async login(req: Request, res: Response): Promise<void> {
     try {
       const validateData = userLoginSchema.parse(req.body);
       const user = await UserUtils.findByEmailandCheckPassword(validateData);
-      SendResponse.success(res,"data send successfully", user, 200)
-    } catch (err : any){
-      SendResponse.error(res,"error in fetching user", 404);
+      SendResponse.success(res, "data send successfully", user, 200);
+    } catch (err: any) {
+      SendResponse.error(res, "error in fetching user", 404);
     }
   }
 
   async profile(req: Request, res: Response): Promise<void> {
-    try{
-      const {email} = req.user as IUser;
-      const user = await UserUtils.findEmail(email);
+    try {
+      const { email } = req.user as IUser;
+      const user = await UserUtils.findUserByEmail(email);
       SendResponse.success(res, "data send Successfuly", user, 200);
-    } catch (err :any){
+    } catch (err: any) {
+      SendResponse.error(res, "data send Successfully", 500, err.message);
+    }
+  }
+
+  async apiEndPointCreater(req: Request, res: Response): Promise<void> {
+    try {
+      const apiKey: string | undefined = await userService.apiKeyCreater(
+        req.user as IUser,
+      );
+      SendResponse.success(res, "data send Successfuly", apiKey, 200);
+    } catch (err: any) {
       SendResponse.error(res, "data send Successfully", 500, err.message);
     }
   }

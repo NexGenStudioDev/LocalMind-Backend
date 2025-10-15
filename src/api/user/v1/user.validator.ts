@@ -15,7 +15,6 @@ export const userRegisterSchema = z.object({
 });
 
 export const userLoginSchema = z.object({
-    email: z.string().email("Invalid email").toLowerCase(),
-    password: z.string()
+  email: z.string().email("Invalid email").toLowerCase(),
+  password: z.string(),
 });
-

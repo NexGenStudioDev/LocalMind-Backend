@@ -5,23 +5,26 @@ import { env } from "../../../constant/env.constant";
 interface GeminiUtilsOptions {
   modelName?: string;
   temperature?: number;
+  apiKey?: string;
   maxOutputTokens?: number;
 }
 
 class GeminiUtils {
   private model: ChatGoogleGenerativeAI;
   private modelName: string;
+  private apiKey!: string;
   private temperature: number;
   private maxOutputTokens: number;
-  // public
+  
 
   constructor(options: GeminiUtilsOptions = {}) {
     this.modelName = options.modelName || "gemini-2.5-pro";
     this.temperature = options.temperature ?? 0.7;
     this.maxOutputTokens = options.maxOutputTokens ?? 2048;
+    this.apiKey = env.GOOGLE_API_KEY ? env.GOOGLE_API_KEY : (options.apiKey || "");
 
     this.model = new ChatGoogleGenerativeAI({
-      apiKey: env.GOOGLE_API_KEY || "",
+      apiKey:  this.apiKey,
       model: this.modelName,
       maxRetries: 1,
       streamUsage: false,
