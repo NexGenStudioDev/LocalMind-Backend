@@ -48,6 +48,18 @@
 						"description": "This API lets you chat with AI models like `llama3` or `mistral` using [Ollama](https://ollama.com).  \nJust send a prompt and get a smart response from the model.\n\n> 🔧 **Before using this API, make sure the model is installed on your system using Ollama.** \n  \n\n### Example:\n\n``` bash\nollama run llama3\n\n ```"
 					},
 					"response": []
+				},
+				{
+					"name": "New Request",
+					"id": "38357625-a7ed2e36-414f-4645-9b65-5a508ab542d6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
 				}
 			],
 			"id": "38357625-f91ffc3c-ddd3-462b-83a3-1600a249aad0",
