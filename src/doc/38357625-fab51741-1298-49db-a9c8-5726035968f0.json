@@ -56,8 +56,35 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "prompt",
+									"value": "Whart is C++",
+									"type": "text",
+									"uuid": "a2f22c50-e8c1-4bf5-8ff6-01aa10df657e"
+								},
+								{
+									"key": "model",
+									"value": "gemma:2b",
+									"type": "text",
+									"uuid": "6e722a85-306e-4186-9cdf-c61286544ecc"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/chat-with-ollama",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"chat-with-ollama"
+							]
+						}
 					},
 					"response": []
 				}
