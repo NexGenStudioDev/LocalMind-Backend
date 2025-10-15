@@ -28,6 +28,7 @@ class OllamaService {
         baseUrl: "http://localhost:11434",
         model: model,
         maxRetries: 2,
+        cache: false,
       });
 
       const formattedPrompt = await promptTemplate.format({
@@ -37,6 +38,7 @@ class OllamaService {
 
       const result = await ollama.invoke(formattedPrompt);
 
+      console.log("Ollama response:", result);
       return JSON.parse(result);
     } catch (error: any) {
       throw new Error(error.message || "Failed to generate text");

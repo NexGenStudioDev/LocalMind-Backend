@@ -7,8 +7,8 @@ import { SendResponse } from "../../../utils/SendResponse.utils";
 class Google_Controller {
   async ChatWithGoogleAI(req: Request, res: Response) {
     try {
-      let { Prompt } = req.body;
-      console.log("Prompt:", Prompt);
+      let { Prompt  } = req.body;
+      console.log("Prompt:--->", Prompt);
 
       let Ai_Response = await GoogleService.ChatWithGoogleAI(Prompt);
 

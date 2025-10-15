@@ -12,13 +12,16 @@ importers:
         version: 30.2.0
       "@langchain/community":
         specifier: ^0.3.57
-        version: 0.3.57(@browserbasehq/sdk@2.6.0)(@browserbasehq/stagehand@1.14.0(@playwright/test@1.55.0)(deepmerge@4.3.1)(dotenv@17.2.3)(openai@5.12.2(ws@8.18.3)(zod@4.1.12))(zod@4.1.12))(@ibm-cloud/watsonx-ai@1.6.13)(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12)))(@langchain/google-genai@0.2.18(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12))))(@langchain/ollama@0.2.4(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12))))(axios@1.12.2)(d3-dsv@2.0.0)(handlebars@4.7.8)(ibm-cloud-sdk-core@5.4.3)(ignore@5.3.2)(jsonwebtoken@9.0.2)(mongodb@6.20.0)(openai@5.12.2(ws@8.18.3)(zod@4.1.12))(playwright@1.55.0)(weaviate-client@3.9.0)(ws@8.18.3)
+        version: 0.3.57(@browserbasehq/sdk@2.6.0)(@browserbasehq/stagehand@1.14.0(@playwright/test@1.55.0)(deepmerge@4.3.1)(dotenv@17.2.3)(openai@5.12.2(ws@8.18.3)(zod@4.1.12))(zod@4.1.12))(@ibm-cloud/watsonx-ai@1.6.13)(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12)))(@langchain/google-genai@0.2.18(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12))))(@langchain/groq@0.2.4(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12))))(@langchain/ollama@0.2.4(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12))))(axios@1.12.2)(d3-dsv@2.0.0)(handlebars@4.7.8)(ibm-cloud-sdk-core@5.4.3)(ignore@5.3.2)(jsonwebtoken@9.0.2)(mongodb@6.20.0)(openai@5.12.2(ws@8.18.3)(zod@4.1.12))(playwright@1.55.0)(weaviate-client@3.9.0)(ws@8.18.3)
       "@langchain/core":
         specifier: ^0.3.78
         version: 0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12))
       "@langchain/google-genai":
         specifier: ^0.2.18
         version: 0.2.18(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12)))
+      "@langchain/groq":
+        specifier: ^0.2.4
+        version: 0.2.4(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12)))
       "@langchain/ollama":
         specifier: ^0.2.4
         version: 0.2.4(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12)))
@@ -66,7 +69,7 @@ importers:
         version: 9.0.2
       langchain:
         specifier: ^0.3.36
-        version: 0.3.36(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12)))(@langchain/google-genai@0.2.18(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12))))(@langchain/ollama@0.2.4(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12))))(axios@1.12.2)(handlebars@4.7.8)(openai@5.12.2(ws@8.18.3)(zod@4.1.12))(ws@8.18.3)
+        version: 0.3.36(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12)))(@langchain/google-genai@0.2.18(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12))))(@langchain/groq@0.2.4(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12))))(@langchain/ollama@0.2.4(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12))))(axios@1.12.2)(handlebars@4.7.8)(openai@5.12.2(ws@8.18.3)(zod@4.1.12))(ws@8.18.3)
       mongoose:
         specifier: ^8.19.1
         version: 8.19.1
@@ -1150,6 +1153,15 @@ packages:
     resolution:
       {
         integrity: sha512-m9EiN3VKC01A7/625YQ6Q1Lqq8zueewADX4W5Tcme4RImN75zkg2Z7FYbD1Fo6Zwolc4wBNO6LUtbg3no4rv1Q==,
+      }
+    engines: { node: ">=18" }
+    peerDependencies:
+      "@langchain/core": ">=0.3.58 <0.4.0"
+
+  "@langchain/groq@0.2.4":
+    resolution:
+      {
+        integrity: sha512-5/XteG1Kio2UEe6irm8Ne8fazO5ZKKNGutIPxiAp5slLb/SKzdNbZoocvYlOnD4w5z8ZmM+0LzisCinUNv9YeA==,
       }
     engines: { node: ">=18" }
     peerDependencies:
@@ -3049,6 +3061,12 @@ packages:
         integrity: sha512-mS1lbMsxgQj6hge1XZ6p7GPhbrtFwUFYi3wRzXAC/FmYnyXMTvvI3td3rjmQ2u8ewXueaSvRPWaEcgVVOT9Jnw==,
       }
     engines: { node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0 }
+
+  groq-sdk@0.29.0:
+    resolution:
+      {
+        integrity: sha512-oDbTqE5yg7mEzSRG0WnvezA/loaM6rY+hHl1Es8MbeOs/zgZFw+DZu3zTXJ0ik4fdNQ3/N6MluOjmytUMkZHtQ==,
+      }
 
   handlebars@4.7.8:
     resolution:
@@ -6327,7 +6345,7 @@ snapshots:
 
   "@js-sdsl/ordered-map@4.4.2": {}
 
-  "@langchain/community@0.3.57(@browserbasehq/sdk@2.6.0)(@browserbasehq/stagehand@1.14.0(@playwright/test@1.55.0)(deepmerge@4.3.1)(dotenv@17.2.3)(openai@5.12.2(ws@8.18.3)(zod@4.1.12))(zod@4.1.12))(@ibm-cloud/watsonx-ai@1.6.13)(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12)))(@langchain/google-genai@0.2.18(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12))))(@langchain/ollama@0.2.4(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12))))(axios@1.12.2)(d3-dsv@2.0.0)(handlebars@4.7.8)(ibm-cloud-sdk-core@5.4.3)(ignore@5.3.2)(jsonwebtoken@9.0.2)(mongodb@6.20.0)(openai@5.12.2(ws@8.18.3)(zod@4.1.12))(playwright@1.55.0)(weaviate-client@3.9.0)(ws@8.18.3)":
+  "@langchain/community@0.3.57(@browserbasehq/sdk@2.6.0)(@browserbasehq/stagehand@1.14.0(@playwright/test@1.55.0)(deepmerge@4.3.1)(dotenv@17.2.3)(openai@5.12.2(ws@8.18.3)(zod@4.1.12))(zod@4.1.12))(@ibm-cloud/watsonx-ai@1.6.13)(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12)))(@langchain/google-genai@0.2.18(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12))))(@langchain/groq@0.2.4(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12))))(@langchain/ollama@0.2.4(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12))))(axios@1.12.2)(d3-dsv@2.0.0)(handlebars@4.7.8)(ibm-cloud-sdk-core@5.4.3)(ignore@5.3.2)(jsonwebtoken@9.0.2)(mongodb@6.20.0)(openai@5.12.2(ws@8.18.3)(zod@4.1.12))(playwright@1.55.0)(weaviate-client@3.9.0)(ws@8.18.3)":
     dependencies:
       "@browserbasehq/stagehand": 1.14.0(@playwright/test@1.55.0)(deepmerge@4.3.1)(dotenv@17.2.3)(openai@5.12.2(ws@8.18.3)(zod@4.1.12))(zod@4.1.12)
       "@ibm-cloud/watsonx-ai": 1.6.13
@@ -6339,7 +6357,7 @@ snapshots:
       flat: 5.0.2
       ibm-cloud-sdk-core: 5.4.3
       js-yaml: 4.1.0
-      langchain: 0.3.36(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12)))(@langchain/google-genai@0.2.18(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12))))(@langchain/ollama@0.2.4(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12))))(axios@1.12.2)(handlebars@4.7.8)(openai@5.12.2(ws@8.18.3)(zod@4.1.12))(ws@8.18.3)
+      langchain: 0.3.36(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12)))(@langchain/google-genai@0.2.18(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12))))(@langchain/groq@0.2.4(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12))))(@langchain/ollama@0.2.4(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12))))(axios@1.12.2)(handlebars@4.7.8)(openai@5.12.2(ws@8.18.3)(zod@4.1.12))(ws@8.18.3)
       langsmith: 0.3.73(openai@5.12.2(ws@8.18.3)(zod@4.1.12))
       openai: 5.12.2(ws@8.18.3)(zod@4.1.12)
       uuid: 10.0.0
@@ -6399,6 +6417,14 @@ snapshots:
       "@google/generative-ai": 0.24.1
       "@langchain/core": 0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12))
       uuid: 11.1.0
+
+  "@langchain/groq@0.2.4(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12)))":
+    dependencies:
+      "@langchain/core": 0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12))
+      groq-sdk: 0.29.0
+      zod: 3.25.76
+    transitivePeerDependencies:
+      - encoding
 
   "@langchain/ollama@0.2.4(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12)))":
     dependencies:
@@ -7550,6 +7576,18 @@ snapshots:
 
   graphql@16.11.0: {}
 
+  groq-sdk@0.29.0:
+    dependencies:
+      "@types/node": 18.19.130
+      "@types/node-fetch": 2.6.13
+      abort-controller: 3.0.0
+      agentkeepalive: 4.6.0
+      form-data-encoder: 1.7.2
+      formdata-node: 4.4.1
+      node-fetch: 2.7.0
+    transitivePeerDependencies:
+      - encoding
+
   handlebars@4.7.8:
     dependencies:
       minimist: 1.2.8
@@ -8120,7 +8158,7 @@ snapshots:
     dependencies:
       json-buffer: 3.0.1
 
-  langchain@0.3.36(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12)))(@langchain/google-genai@0.2.18(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12))))(@langchain/ollama@0.2.4(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12))))(axios@1.12.2)(handlebars@4.7.8)(openai@5.12.2(ws@8.18.3)(zod@4.1.12))(ws@8.18.3):
+  langchain@0.3.36(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12)))(@langchain/google-genai@0.2.18(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12))))(@langchain/groq@0.2.4(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12))))(@langchain/ollama@0.2.4(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12))))(axios@1.12.2)(handlebars@4.7.8)(openai@5.12.2(ws@8.18.3)(zod@4.1.12))(ws@8.18.3):
     dependencies:
       "@langchain/core": 0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12))
       "@langchain/openai": 0.6.16(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12)))(ws@8.18.3)
@@ -8136,6 +8174,7 @@ snapshots:
       zod: 3.25.76
     optionalDependencies:
       "@langchain/google-genai": 0.2.18(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12)))
+      "@langchain/groq": 0.2.4(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12)))
       "@langchain/ollama": 0.2.4(@langchain/core@0.3.78(openai@5.12.2(ws@8.18.3)(zod@4.1.12)))
       axios: 1.12.2(debug@4.4.3)
       handlebars: 4.7.8

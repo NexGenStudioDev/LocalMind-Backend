@@ -1,8 +1,5 @@
 import { z } from "zod";
 
-
-
-
 export const EnvSchema = z.object({
   PORT: z.string().default("5000"),
   HOST: z.string().default("localhost"),
@@ -11,10 +8,11 @@ export const EnvSchema = z.object({
     .string()
     .transform((v) => v === "true")
     .default(true),
-   Your_Name: z.string(),
-   YOUR_EMAIL: z.email(),
-   YOUR_PASSWORD: z.string(),
-   LOG_LEVEL: z.string().default("debug"),
+  Your_Name: z.string(),
+  YOUR_EMAIL: z.email(),
+  YOUR_PASSWORD: z.string(),
+  LOG_LEVEL: z.string().default("debug"),
+  GROQ_API_KEY: z.string(),
 
   CORS_ENABLED: z
     .string()
@@ -48,7 +46,6 @@ export const EnvSchema = z.object({
   MAX_FILE_SIZE: z.string(),
 
   ENCRYPTION_KEY: z.string(),
-
 
   SERVER_HMAC_SECRET: z.string(),
 

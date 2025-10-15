@@ -38,6 +38,7 @@
     "@langchain/community": "^0.3.57",
     "@langchain/core": "^0.3.78",
     "@langchain/google-genai": "^0.2.18",
+    "@langchain/groq": "^0.2.4",
     "@langchain/ollama": "^0.2.4",
     "@types/cookie-parser": "^1.4.9",
     "@types/jsonwebtoken": "^9.0.10",

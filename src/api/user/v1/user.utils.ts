@@ -83,7 +83,9 @@ class UserUtils {
     return await argon2.hash(password);
   }
 
-  public static async findUserByEmail(email: string): Promise<Partial<IUser> | null> {
+  public static async findUserByEmail(
+    email: string,
+  ): Promise<Partial<IUser> | null> {
     const user = await User.findOne({ email });
     if (!user) return null;
     const userObj = user.toObject() as IUser;

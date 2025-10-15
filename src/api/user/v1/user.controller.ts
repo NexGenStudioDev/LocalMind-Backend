@@ -9,11 +9,9 @@ import { IUser } from "./user.type";
 class UserController {
   async register(req: Request, res: Response): Promise<void> {
     try {
-
       // check already user exist
 
-   // cpde 
-
+      // cpde
 
       const validatedData = userRegisterSchema.parse(req.body);
 
@@ -65,11 +63,13 @@ class UserController {
     }
   }
 
-  async apiEndPointCreater ( req: Request, res: Response): Promise<void> {
+  async apiEndPointCreater(req: Request, res: Response): Promise<void> {
     try {
-      const apiKey: string | undefined = await userService.apiKeyCreater(req.user as IUser);
+      const apiKey: string | undefined = await userService.apiKeyCreater(
+        req.user as IUser,
+      );
       SendResponse.success(res, "data send Successfuly", apiKey, 200);
-    } catch (err : any){
+    } catch (err: any) {
       SendResponse.error(res, "data send Successfully", 500, err.message);
     }
   }

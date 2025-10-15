@@ -14,7 +14,7 @@ describe("OllamaService Test", () => {
     expect(isAvailable).toBeDefined();
     expect(isAvailable).not.toBeNull();
     expect(isAvailable).not.toBeUndefined();
-    expect(isAvailable).toBe(true)
+    expect(isAvailable).toBe(true);
   });
 
   it("should return a vector for valid input", async () => {
