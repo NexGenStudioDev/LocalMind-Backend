@@ -17,7 +17,8 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"description": "This API lets you chat with AI models like `llama3` or `mistral` using Ollama.  \n  \nJust send a prompt and get a smart response from the model.\n\n> \n\n🔧 **Before using this API, make sure the model is installed on your system using Ollama.**  \n  \nExample:"
 					},
 					"response": []
 				}
