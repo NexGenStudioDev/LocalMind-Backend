@@ -58,5 +58,38 @@
 			"item": [],
 			"id": "38357625-111b6781-69a3-4a95-b7f4-5dfdf5e26977"
 		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "236c8d95-dae0-4214-8b2c-3a71e0d7cc04",
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "c0021dad-3846-404a-9891-9de7264582ba",
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "",
+			"type": "default"
+		}
 	]
 }
