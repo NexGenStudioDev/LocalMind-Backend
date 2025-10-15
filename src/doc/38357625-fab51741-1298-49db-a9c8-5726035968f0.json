@@ -10,7 +10,7 @@
 			"name": "Ai model",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "Chat With Ollama",
 					"id": "38357625-19b4297e-da77-4695-9036-020dcb029cf1",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
