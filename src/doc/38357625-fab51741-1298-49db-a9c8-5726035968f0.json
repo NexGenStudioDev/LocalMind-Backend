@@ -63,7 +63,7 @@
 							"urlencoded": [
 								{
 									"key": "prompt",
-									"value": "Whart is C++",
+									"value": "Whart is Java",
 									"type": "text",
 									"uuid": "a2f22c50-e8c1-4bf5-8ff6-01aa10df657e"
 								},
@@ -76,13 +76,14 @@
 							]
 						},
 						"url": {
-							"raw": "{{baseUrl}}/v1/chat-with-ollama",
+							"raw": "{{baseUrl}}/v1/chat/gemini",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"v1",
-								"chat-with-ollama"
+								"chat",
+								"gemini"
 							]
 						}
 					},
