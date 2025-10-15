@@ -96,8 +96,29 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "message",
+									"value": "What is the Capital of Ranchi",
+									"type": "text",
+									"uuid": "4fc74f98-dca9-41e5-8ea6-47ea58987843"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/chat-with-groq",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"chat-with-groq"
+							]
+						}
 					},
 					"response": []
 				}
