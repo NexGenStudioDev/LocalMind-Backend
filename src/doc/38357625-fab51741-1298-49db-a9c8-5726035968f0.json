@@ -63,7 +63,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "236c8d95-dae0-4214-8b2c-3a71e0d7cc04",
+				"id": "1e2f8247-4a6e-424f-991b-0e29ead8d159",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -75,7 +75,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "c0021dad-3846-404a-9891-9de7264582ba",
+				"id": "02d22adf-65c0-46f8-9e8c-ecf7bfac853c",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -88,8 +88,7 @@
 	"variable": [
 		{
 			"key": "baseUrl",
-			"value": "",
-			"type": "default"
+			"value": ""
 		}
 	]
 }
