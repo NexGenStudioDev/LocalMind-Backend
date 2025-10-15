@@ -50,7 +50,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "Chat WIth Gemini",
 					"id": "38357625-a7ed2e36-414f-4645-9b65-5a508ab542d6",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
