@@ -7,7 +7,20 @@
 	"item": [
 		{
 			"name": "Ai model",
-			"item": [],
+			"item": [
+				{
+					"name": "New Request",
+					"id": "38357625-19b4297e-da77-4695-9036-020dcb029cf1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
 			"id": "38357625-f91ffc3c-ddd3-462b-83a3-1600a249aad0"
 		},
 		{
