@@ -1,0 +1,19 @@
+{
+	"info": {
+		"_postman_id": "38357625-fab51741-1298-49db-a9c8-5726035968f0",
+		"name": "LocalMind Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ai model",
+			"item": [],
+			"id": "38357625-f91ffc3c-ddd3-462b-83a3-1600a249aad0"
+		},
+		{
+			"name": "User",
+			"item": [],
+			"id": "38357625-111b6781-69a3-4a95-b7f4-5dfdf5e26977"
+		}
+	]
+}
