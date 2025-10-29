@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import * as path from "path";
 import { PromptTemplate } from "@langchain/core/prompts";
-import { LangchainPromptTemplate } from "../../../Template/v1/Ai.template";
+import { LangchainPromptTemplate } from "../../../../Template/v1/Ai.template";
 
 class DatasetUtils {
   async Prepare_PromptTemplate(): Promise<any> {

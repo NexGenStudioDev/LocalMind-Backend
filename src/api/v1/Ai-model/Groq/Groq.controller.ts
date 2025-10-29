@@ -13,7 +13,7 @@ class GroqController {
       if (!chat) {
         throw new Error(GROQ_TYPE.FAILED_TO_GET_RESPONSE_FROM_GROQ);
       }
-      
+
       SendResponse.success(res, GROQ_TYPE.GET_RESPONSE_FROM_GROQ_SUCCESS, chat);
     } catch (error: any) {
       SendResponse.error(res, error.message, 500, error);

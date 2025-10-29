@@ -1,14 +1,14 @@
 import { Request, Response } from "express";
-import AiTemplate from "../../../Template/v1/Ai.template";
+import AiTemplate from "../../../../Template/v1/Ai.template";
 import GeminiUtils from "./Google.utils";
 import GoogleService from "./Google.service";
-import { SendResponse } from "../../../utils/SendResponse.utils";
+import { SendResponse } from "../../../../utils/SendResponse.utils";
 
 class Google_Controller {
   async ChatWithGoogleAI(req: Request, res: Response) {
     try {
-      let { Prompt  } = req.body;
-      console.log("Prompt:--->", Prompt);
+      let { Prompt } = req.body;
+   
 
       let Ai_Response = await GoogleService.ChatWithGoogleAI(Prompt);
 

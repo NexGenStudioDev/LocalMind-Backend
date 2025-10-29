@@ -41,9 +41,11 @@ class UserUtils {
       const user = await User.findOne({ email: data.email }).select(
         "+password",
       );
+      
       if (!user) {
         throw new Error("User not found");
       }
+
       if (!user.password) {
         throw new Error("User password is undefined");
       }
@@ -65,7 +67,7 @@ class UserUtils {
       delete (userObj as { __v?: number }).__v;
 
       const token = this.generateToken({
-        userId: user._id.toString(),
+        userId: String(user._id),
         email: user.email,
         role: user.role,
       });
@@ -77,6 +79,11 @@ class UserUtils {
       }
       throw new Error("Database error while finding user by email");
     }
+  }
+
+  public static async findById(userId: string): Promise<IUser | null> {
+    const user = await User.findById(userId);
+    return user;
   }
 
   public static async passwordHash(password: string): Promise<string> {

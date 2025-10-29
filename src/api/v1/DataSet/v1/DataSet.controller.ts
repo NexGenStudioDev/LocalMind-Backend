@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 
 import { CSVLoader } from "@langchain/community/document_loaders/fs/csv";
 import path from "path";
-import { SendResponse } from "../../../utils/SendResponse.utils";
+import { SendResponse } from "../../../../utils/SendResponse.utils";
 import DataSetService from "./DataSet.service";
 
 class DataSetController {
@@ -15,7 +15,7 @@ class DataSetController {
 
       const Prepare_dataSet = await DataSetService.Prepate_DataSet(documents);
 
-      console.log("Prepare_dataSet:", Prepare_dataSet);
+  
       SendResponse.success(
         res,
         "Dataset uploaded and processed successfully",

@@ -11,7 +11,7 @@ class GroqService {
       const llm = new ChatGroq({
         model: data.model || "groq/compound",
         temperature: 0,
-        apiKey:  env.GROQ_API_KEY ? env.GROQ_API_KEY : data.apiKey,
+        apiKey: env.GROQ_API_KEY ? env.GROQ_API_KEY : data.apiKey,
         maxRetries: 2,
       });
 
@@ -20,10 +20,13 @@ class GroqService {
         userPrompt: data.message,
       });
 
-     let response = await  llm.invoke(prompt);
-     
-     return JSON.parse(typeof response.content === "string" ? response.content : JSON.stringify(response.content));
+      let response = await llm.invoke(prompt);
 
+      return JSON.parse(
+        typeof response.content === "string"
+          ? response.content
+          : JSON.stringify(response.content),
+      );
     } catch (error) {}
   }
 }

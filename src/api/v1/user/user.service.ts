@@ -28,8 +28,7 @@ const createKeyPair = async () => {
 
 class userService {
   async createUser(data: IUser) {
-    if (!data.password) throw new Error("password require!");
-    const hashPassword = await UserUtils.passwordHash(data.password);
+    const hashPassword = await UserUtils.passwordHash(String(data.password));
     const user = await User.create({
       ...data,
       password: hashPassword,
