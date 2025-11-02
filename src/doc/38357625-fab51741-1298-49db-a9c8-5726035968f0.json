@@ -130,7 +130,7 @@
 			"name": "User",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "Sign Up",
 					"id": "38357625-896a7a75-08d2-4596-83de-343ebabd7de4",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
