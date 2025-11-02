@@ -261,7 +261,7 @@
 					]
 				},
 				{
-					"name": "New Request",
+					"name": "Login",
 					"id": "38357625-65dd89fe-ded7-493d-8ea5-4cd448d0fbcf",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -297,6 +297,18 @@
 								"login"
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"id": "38357625-0166a0f9-7b8d-4d37-b87e-5c78f7af9e54",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
 					},
 					"response": []
 				}
