@@ -313,8 +313,38 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
-						"header": []
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{LocalMindToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"agents\": [\n    {\n      \"provider\": \"OpenAI\",\n      \"type\": \"cloud\",\n      \"model\": \"gpt-3.5-turbo\",\n      \"key\": \"YOUR_OPENAI_API_KEY_HERE\"\n    },\n    {\n      \"provider\": \"Google\",\n      \"type\": \"cloud\",\n      \"model\": \"gemini-pro\",\n      \"key\": \"YOUR_GOOGLE_API_KEY_HERE\"\n    }\n  ],\n  \"system_prompt\": \"You are a helpful assistant. Provide concise and informative answers. If you don't know the answer, say you don't know.\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/config/agents",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"config",
+								"agents"
+							]
+						}
 					},
 					"response": []
 				}
