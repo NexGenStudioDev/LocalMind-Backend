@@ -259,6 +259,18 @@
 							"body": "{\n    \"success\": true,\n    \"message\": \"User created successfully\",\n    \"data\": {\n        \"userObj\": {\n            \"$__\": {\n                \"activePaths\": {\n                    \"paths\": {\n                        \"password\": \"require\",\n                        \"email\": \"require\",\n                        \"name\": \"require\"\n                    },\n                    \"states\": {\n                        \"require\": {\n                            \"password\": true,\n                            \"email\": true,\n                            \"name\": true\n                        },\n                        \"default\": {},\n                        \"modify\": {}\n                    }\n                },\n                \"op\": null,\n                \"saving\": null,\n                \"$versionError\": null,\n                \"saveOptions\": null,\n                \"validating\": null,\n                \"cachedRequired\": {},\n                \"backup\": {\n                    \"activePaths\": {\n                        \"modify\": {\n                            \"name\": true,\n                            \"email\": true,\n                            \"password\": true,\n                            \"createdAt\": true,\n                            \"updatedAt\": true\n                        },\n                        \"default\": {\n                            \"role\": true,\n                            \"apikey\": true,\n                            \"model\": true,\n                            \"modelApiKey\": true,\n                            \"_id\": true\n                        }\n                    },\n                    \"validationError\": null\n                },\n                \"inserting\": true,\n                \"savedState\": {}\n            },\n            \"_doc\": {\n                \"name\": \"Your Name\",\n                \"email\": \"Youremail@gmail.com\",\n                \"password\": \"$argon2id$v=19$m=65536,t=3,p=4$BD6YFiBv/duiF/sL/SIZig$+jCDNZs9RBk/kGYO/GA2EvW0d0Il+Nff16TI9UEBZ/4\",\n                \"role\": \"user\",\n                \"apikey\": null,\n                \"model\": null,\n                \"modelApiKey\": null,\n                \"_id\": \"69074a885aad727a6975c5e2\",\n                \"createdAt\": \"2025-11-02T12:11:52.631Z\",\n                \"updatedAt\": \"2025-11-02T12:11:52.631Z\",\n                \"__v\": 0\n            },\n            \"$isNew\": false\n        },\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTA3NGE4ODVhYWQ3MjdhNjk3NWM1ZTIiLCJlbWFpbCI6ImFiaGlzaGVrLm5leGdlbi5kZXZAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NjIwODU1MTIsImV4cCI6MTc2MjY5MDMxMn0.olWvXB76PeyeIiwSZTfNxSCAOqMTGoFzjnr1XrfV8qE\"\n    }\n}"
 						}
 					]
+				},
+				{
+					"name": "New Request",
+					"id": "38357625-65dd89fe-ded7-493d-8ea5-4cd448d0fbcf",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
 				}
 			],
 			"id": "38357625-111b6781-69a3-4a95-b7f4-5dfdf5e26977"
