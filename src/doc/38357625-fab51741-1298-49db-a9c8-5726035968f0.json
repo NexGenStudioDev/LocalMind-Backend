@@ -128,20 +128,21 @@
 		},
 		{
 			"name": "User",
-			"item": [],
+			"item": [
+				{
+					"name": "New Request",
+					"id": "38357625-896a7a75-08d2-4596-83de-343ebabd7de4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
 			"id": "38357625-111b6781-69a3-4a95-b7f4-5dfdf5e26977"
-		},
-		{
-			"name": "New Request",
-			"id": "38357625-896a7a75-08d2-4596-83de-343ebabd7de4",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": []
-			},
-			"response": []
 		}
 	],
 	"event": [
