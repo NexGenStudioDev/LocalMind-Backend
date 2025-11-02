@@ -56,7 +56,7 @@ class UserController {
       SendResponse.success(res, UserConstant.LOGIN_USER_SUCCESS, { user, token }, StatusConstant.OK);
 
     } catch (err: any) {
-      SendResponse.error(res, err.message || "Invalid credentials", 401, err);
+      SendResponse.error(res, err.message || UserConstant.INVALID_CREDENTIALS, 401, err);
     }
   }
 
@@ -66,7 +66,7 @@ class UserController {
       const token =  req.headers.authorization?.split(" ")[1] || req.cookies?.token;
 
       if (!token) {
-        throw new Error("Authentication token missing");
+        throw new Error(UserConstant.TOKEN_MISSING);
       }
 
 
@@ -78,20 +78,20 @@ class UserController {
       const user = await UserUtils.findById(decoded.userId);
 
       if (!user) {
-        throw new Error("User not found");
+        throw new Error(UserConstant.USER_NOT_FOUND);
       }
 
       const userObj: Partial<IUser> = { ...user };
       delete userObj.password;
 
-      SendResponse.success(res, "Profile fetched successfully", userObj, 200);
+      SendResponse.success(res, UserConstant.USER_PROFILE_SUCCESS, userObj, 200);
     } catch (err: any) {
       if (err.name === "JsonWebTokenError") {
-        SendResponse.error(res, "Invalid token", 401);
+        SendResponse.error(res, UserConstant.INVALID_TOKEN, 401);
       } else {
         SendResponse.error(
           res,
-          err.message || "Failed to fetch profile",
+          err.message || UserConstant.USER_PROFILE_FAILED,
           500,
           err,
         );
@@ -109,14 +109,14 @@ class UserController {
 
       SendResponse.success(
         res,
-        "API key created successfully",
+       UserConstant.GENERATE_API_KEY_SUCCESS,
         { apiKey },
         200,
       );
     } catch (err: any) {
       SendResponse.error(
         res,
-        err.message || "Failed to create API key",
+        err.message || UserConstant.GENERATE_API_KEY_FAILED,
         500,
         err,
       );
