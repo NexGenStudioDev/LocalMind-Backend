@@ -69,6 +69,22 @@ enum UserConstant {
 
   DATABASE_FIND_USER_ERROR = "Database error while finding user by email",
   SERVER_ERROR = "Something went wrong, please try again later",
+
+   // 🧩 API Key Related
+  API_KEY_CREATED = "API key created successfully",
+  API_KEY_CREATION_FAILED = "Failed to create API key",
+
+  API_KEY_FETCHED = "API key fetched successfully",
+  API_KEY_NOT_FOUND = "API key not found",
+
+  API_KEY_VERIFICATION_SENT = "Verification email sent successfully",
+  FAILED_TO_SEND_EMAIL = "Failed to send verification email",
+
+  API_KEY_VERIFICATION_SUCCESS = "API key verification successful",
+  API_KEY_VERIFICATION_FAILED = "Invalid or expired verification code",
+
+  API_KEY_REVEALED = "API key revealed successfully",
+  API_KEY_REVEAL_FAILED = "Failed to reveal API key",
 }
 
 export default UserConstant;

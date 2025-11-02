@@ -10,17 +10,14 @@ class UserMiddleware {
     next: NextFunction,
   ): Promise<void> {
     try {
-      const rawAuth = Array.isArray(req.headers["authorization"])
-        ? req.headers["authorization"][0]
-        : req.headers["authorization"];
+    const token =
+        req.headers.authorization?.split(" ")[1] || req.cookies?.token;
 
-      const token: string | undefined =
-        (req.cookies && (req.cookies as any).userToken) ||
-        rawAuth?.split(" ")[1];
+        console.log("Token in middleware:", token);
       if (!token) {
-        SendResponse.error(res, UserConstant.TOKEN_MISSING, 401);
-        return;
+        throw new Error(UserConstant.TOKEN_MISSING);
       }
+    
 
       const decodedData: IUser | null = UserUtils.verifyToken(token);
 

@@ -122,6 +122,30 @@ class UserController {
       );
     }
   }
+ async getApiKey(req: Request, res: Response): Promise<void> {
+    try {
+      const userId = req.user?._id;
+
+      if (!userId) {
+        SendResponse.error(res, UserConstant.TOKEN_MISSING, 401);
+        return;
+      }
+
+      const user = await UserUtils.findById(userId);
+      if (!user || !user.apikey) {
+        SendResponse.error(res, UserConstant.API_KEY_NOT_FOUND, 404);
+        return;
+      }
+
+      const maskedKey = UserUtils.maskApiKey(user.apikey);
+      SendResponse.success(res, UserConstant.API_KEY_FETCHED, { apiKey: maskedKey }, 200);
+    } catch (err: any) {
+      SendResponse.error(res, err.message || UserConstant.SERVER_ERROR, 500, err);
+    }
+  }
+  
+
+
 }
 
 export default new UserController();
