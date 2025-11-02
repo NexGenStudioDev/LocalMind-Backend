@@ -305,20 +305,21 @@
 		},
 		{
 			"name": "New Folder",
-			"item": [],
+			"item": [
+				{
+					"name": "New Request",
+					"id": "38357625-3dca21ab-5f9b-4d55-85cb-4ba0e93ddeef",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
 			"id": "38357625-cb23174d-28bc-4b72-bc66-037a01fa1b31"
-		},
-		{
-			"name": "New Request",
-			"id": "38357625-3dca21ab-5f9b-4d55-85cb-4ba0e93ddeef",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": []
-			},
-			"response": []
 		}
 	],
 	"event": [
