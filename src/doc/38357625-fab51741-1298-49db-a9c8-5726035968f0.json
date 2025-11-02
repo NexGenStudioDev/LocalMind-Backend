@@ -136,8 +136,42 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Abhishek Kumar",
+									"type": "text",
+									"uuid": "52a99a0e-e32c-45c1-a332-5c45a7f33b86"
+								},
+								{
+									"key": "email",
+									"value": "abhishek.nexgen.dev@gmail.com",
+									"type": "text",
+									"uuid": "6b5fb02d-7871-419a-9fa6-770b8a04d250"
+								},
+								{
+									"key": "password",
+									"value": "Abhishek@123",
+									"type": "text",
+									"uuid": "0173043c-224d-49fa-b1a4-741eb7610da5"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/user/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"register"
+							]
+						}
 					},
 					"response": []
 				}
