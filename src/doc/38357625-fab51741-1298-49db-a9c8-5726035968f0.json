@@ -267,8 +267,36 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "abhishek.nexgen.dev@gmail.com",
+									"type": "text",
+									"uuid": "6180bfa7-abcb-4fc5-a188-7f1bc905ba1f"
+								},
+								{
+									"key": "password",
+									"value": "Abhishek@123",
+									"type": "text",
+									"uuid": "1fc7396d-be1c-4c16-b1c8-5963912ec869"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/user/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"login"
+							]
+						}
 					},
 					"response": []
 				}
