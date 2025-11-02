@@ -308,7 +308,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "410d698a-619d-41a9-9784-072e08f178b0",
+				"id": "94092231-0127-485f-aa96-07b9ccec663b",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -320,7 +320,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "66447d26-b9c6-43a0-916f-a3ff601c1d1a",
+				"id": "bafcad78-2cc8-4955-9df2-79e4d628fea7",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -336,9 +336,8 @@
 			"value": ""
 		},
 		{
-			"key": "Token",
-			"value": "",
-			"type": "default"
+			"key": "LocalMindToken",
+			"value": ""
 		}
 	]
 }
