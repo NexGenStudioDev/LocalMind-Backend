@@ -11,9 +11,9 @@ import { GroqRouter } from "../api/v1/Ai-model/Groq/Groq.routes";
 logger.token("time", () => new Date().toLocaleString());
 app.use(logger(":time :method :url :status"));
 
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
 
 app.use(
   "/api",

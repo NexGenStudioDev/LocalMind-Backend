@@ -8,8 +8,29 @@ import { IUser } from "./user.type";
 import jwt from "jsonwebtoken";
 import UserConstant from "./user.constant";
 import { StatusConstant } from "../../../constant/Status.constant";
+import { th } from "zod/v4/locales";
 
 class UserController {
+
+
+  constructor() {
+    this.register = this.register.bind(this);
+    this.login = this.login.bind(this);
+    this.profile = this.profile.bind(this);
+    this.apiEndPointCreater = this.apiEndPointCreater.bind(this);
+    this.getApiKey = this.getApiKey.bind(this);
+  }
+
+  private setHeaderToken(res: Response, token: string): void {
+    res.setHeader("Authorization", `Bearer ${token}`);
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+    });
+  }
+
+
   async register(req: Request, res: Response): Promise<void> {
     try {
       const validatedData = await userRegisterSchema.parseAsync(req.body);
@@ -27,6 +48,8 @@ class UserController {
         email: user.email,
         role: user.role,
       });
+
+      this.setHeaderToken(res, token);
 
       SendResponse.success(
         res,
@@ -52,6 +75,8 @@ class UserController {
         email: user.userObj.email,
         role: user.userObj.role,
       });
+
+      this.setHeaderToken(res, token);
 
       SendResponse.success(res, UserConstant.LOGIN_USER_SUCCESS, { user, token }, StatusConstant.OK);
 
@@ -101,6 +126,8 @@ class UserController {
 
   async apiEndPointCreater(req: Request, res: Response): Promise<void> {
     try {
+
+
       if (!req.user) {
           throw new Error(UserConstant.INVALID_INPUT);
       }
@@ -114,6 +141,7 @@ class UserController {
         200,
       );
     } catch (err: any) {
+  
       SendResponse.error(
         res,
         err.message || UserConstant.GENERATE_API_KEY_FAILED,
@@ -126,18 +154,24 @@ class UserController {
     try {
       const userId = req.user?._id;
 
+
+
+
       if (!userId) {
-        SendResponse.error(res, UserConstant.TOKEN_MISSING, 401);
-        return;
+        throw new Error(UserConstant.INVALID_INPUT);
       }
 
       const user = await UserUtils.findById(userId);
+
+
+
+
       if (!user || !user.apikey) {
-        SendResponse.error(res, UserConstant.API_KEY_NOT_FOUND, 404);
-        return;
+        throw new Error(UserConstant.API_KEY_NOT_FOUND);
       }
 
       const maskedKey = UserUtils.maskApiKey(user.apikey);
+
       SendResponse.success(res, UserConstant.API_KEY_FETCHED, { apiKey: maskedKey }, 200);
     } catch (err: any) {
       SendResponse.error(res, err.message || UserConstant.SERVER_ERROR, 500, err);

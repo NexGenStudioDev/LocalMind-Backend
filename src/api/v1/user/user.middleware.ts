@@ -10,10 +10,8 @@ class UserMiddleware {
     next: NextFunction,
   ): Promise<void> {
     try {
-    const token =
-        req.headers.authorization?.split(" ")[1] || req.cookies?.token;
-
-        console.log("Token in middleware:", token);
+    const token =  req.headers.authorization?.split(" ")[1] || req.cookies?.token;
+      
       if (!token) {
         throw new Error(UserConstant.TOKEN_MISSING);
       }
@@ -21,9 +19,9 @@ class UserMiddleware {
 
       const decodedData: IUser | null = UserUtils.verifyToken(token);
 
+
       if (!decodedData) {
-        SendResponse.error(res, UserConstant.INVALID_TOKEN, 401);
-        return;
+        throw new Error(UserConstant.INVALID_TOKEN);
       }
 
       req.user = decodedData;

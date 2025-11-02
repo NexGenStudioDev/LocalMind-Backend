@@ -28,6 +28,8 @@ class UserUtils {
       if (typeof decoded === "object" && decoded !== null) {
         return {
           email: decoded.email as string,
+          _id: decoded.userId as string,
+          role: decoded.role as string,
         };
       }
 
@@ -114,7 +116,7 @@ class UserUtils {
     return await argon2.verify(dbPass, userPass);
   }
   public static maskApiKey(apiKey: string): string {
-    if (!apiKey || apiKey.length < 8) return "********";
+    if (!apiKey || apiKey.length < 8) return "*";
     const visibleStart = apiKey.slice(0, 4);
     const visibleEnd = apiKey.slice(-4);
     const masked = "*".repeat(apiKey.length - 8);

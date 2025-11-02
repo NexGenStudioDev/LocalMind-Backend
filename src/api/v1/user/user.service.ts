@@ -39,6 +39,9 @@ class userService {
   async apiKeyCreater(data: IUser): Promise<string | undefined> {
     try {
       const { raw, hashed } = await createKeyPair();
+
+  
+
       await User.findOneAndUpdate(
         { email: data.email },
         {
