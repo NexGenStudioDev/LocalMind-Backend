@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import { SendResponse } from "../../../utils/SendResponse.utils";
 import UserUtils from "./user.utils";
 import { IUser } from "./user.type";
+import UserConstant from "./user.constant";
 class UserMiddleware {
   async middleware(
     req: Request,
@@ -9,29 +10,24 @@ class UserMiddleware {
     next: NextFunction,
   ): Promise<void> {
     try {
-      const rawAuth = Array.isArray(req.headers["authorization"])
-        ? req.headers["authorization"][0]
-        : req.headers["authorization"];
-
-      const token: string | undefined =
-        (req.cookies && (req.cookies as any).userToken) ||
-        rawAuth?.split(" ")[1];
+    const token =  req.headers.authorization?.split(" ")[1] || req.cookies?.token;
+      
       if (!token) {
-        SendResponse.error(res, "Token missing", 401);
-        return;
+        throw new Error(UserConstant.TOKEN_MISSING);
       }
+    
 
       const decodedData: IUser | null = UserUtils.verifyToken(token);
 
+
       if (!decodedData) {
-        SendResponse.error(res, "Invalid token", 401);
-        return;
+        throw new Error(UserConstant.INVALID_TOKEN);
       }
 
       req.user = decodedData;
       return next();
     } catch (err: any) {
-      SendResponse.error(res, err.message || "Something went wrong", 500);
+      SendResponse.error(res, err.message || UserConstant.SERVER_ERROR, 500);
     }
   }
 }
