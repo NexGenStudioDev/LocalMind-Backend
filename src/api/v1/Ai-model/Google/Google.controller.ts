@@ -8,7 +8,6 @@ class Google_Controller {
   async ChatWithGoogleAI(req: Request, res: Response) {
     try {
       let { Prompt } = req.body;
-   
 
       let Ai_Response = await GoogleService.ChatWithGoogleAI(Prompt);
 
