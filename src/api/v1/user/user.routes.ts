@@ -13,5 +13,8 @@ router.get(
   userMiddleware.middleware,
   userController.profile,
 );
+router.get("/v1/user/apiKey",  userMiddleware.middleware,  userController.getApiKey);
+
+// router.post("v1/user/apikey/reveal",   userMiddleware.middleware, UserController.revealApiKey);
 
 export { router as userRoutes };

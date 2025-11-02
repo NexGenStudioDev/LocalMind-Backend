@@ -3,6 +3,7 @@ import { env } from "../../../constant/env.constant";
 import { IUser } from "./user.type";
 import User from "./user.model";
 import * as argon2 from "argon2";
+import UserConstant from "./user.constant";
 
 export interface JwtPayload {
   userId: string;
@@ -43,14 +44,14 @@ class UserUtils {
       );
       
       if (!user) {
-        throw new Error("User not found");
+        throw new Error(UserConstant.USER_NOT_FOUND);
       }
 
       if (!user.password) {
-        throw new Error("User password is undefined");
+        throw new Error(UserConstant.PASSWORD_UNDEFINED);
       }
       if (!data.password) {
-        throw new Error("Provided password is undefined");
+        throw new Error(UserConstant.PASSWORD_UNDEFINED);
       }
       const PassMatch = await this.passwordMatching({
         dbPass: user.password,
@@ -58,7 +59,7 @@ class UserUtils {
       });
 
       if (!PassMatch) {
-        throw new Error("Invalid password");
+        throw new Error(UserConstant.INVALID_PASSWORD);
       }
       const userObj: IUser = user.toObject();
       delete (userObj as { password?: string }).password;
@@ -77,7 +78,7 @@ class UserUtils {
       if (err instanceof Error) {
         throw err;
       }
-      throw new Error("Database error while finding user by email");
+      throw new Error(UserConstant.DATABASE_FIND_USER_ERROR);
     }
   }
 
@@ -112,6 +113,15 @@ class UserUtils {
   }): Promise<boolean> {
     return await argon2.verify(dbPass, userPass);
   }
+  public static maskApiKey(apiKey: string): string {
+    if (!apiKey || apiKey.length < 8) return "********";
+    const visibleStart = apiKey.slice(0, 4);
+    const visibleEnd = apiKey.slice(-4);
+    const masked = "*".repeat(apiKey.length - 8);
+    return `${visibleStart}${masked}${visibleEnd}`;
+  }
+
+
 }
 
 export default UserUtils;
