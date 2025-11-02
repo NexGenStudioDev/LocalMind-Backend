@@ -1,147 +1,179 @@
 {
-  "info": {
-    "_postman_id": "38357625-fab51741-1298-49db-a9c8-5726035968f0",
-    "name": "LocalMind Api",
-    "description": "LocalMind is a free, open-source platform made for students, developers, and anyone who wants to use AI without paying expensive fees or worrying about usage limits. notionvc: d4b09e72-493d-4a46-90ca-f316ed8444af\n\nWith LocalMind, you can run powerful AI models directly on your computer (like Mistral or LLaMA) or connect to cloud models (like Gemini) using your own API key — which is stored safely on your device. You can even upload Excel files to teach your AI more things, and expose your local port so others can access your AI too! notionvc: bb99df7a-7100-4b2a-a93b-0614713c0f93",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-  },
-  "item": [
-    {
-      "name": "Ai model",
-      "item": [
-        {
-          "name": "Chat With Ollama",
-          "id": "38357625-19b4297e-da77-4695-9036-020dcb029cf1",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "key": "prompt",
-                  "value": "Whart is C++",
-                  "type": "text",
-                  "uuid": "a2f22c50-e8c1-4bf5-8ff6-01aa10df657e"
-                },
-                {
-                  "key": "model",
-                  "value": "gemma:2b",
-                  "type": "text",
-                  "uuid": "6e722a85-306e-4186-9cdf-c61286544ecc"
-                }
-              ]
-            },
-            "url": {
-              "raw": "{{baseUrl}}/v1/chat-with-ollama",
-              "host": ["{{baseUrl}}"],
-              "path": ["v1", "chat-with-ollama"]
-            },
-            "description": "This API lets you chat with AI models like `llama3` or `mistral` using [Ollama](https://ollama.com).  \nJust send a prompt and get a smart response from the model.\n\n> 🔧 **Before using this API, make sure the model is installed on your system using Ollama.** \n  \n\n### Example:\n\n``` bash\nollama run llama3\n\n ```"
-          },
-          "response": []
-        },
-        {
-          "name": "Chat WIth Gemini",
-          "id": "38357625-a7ed2e36-414f-4645-9b65-5a508ab542d6",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "key": "prompt",
-                  "value": "Whart is Java",
-                  "type": "text",
-                  "uuid": "a2f22c50-e8c1-4bf5-8ff6-01aa10df657e"
-                },
-                {
-                  "key": "model",
-                  "value": "gemma:2b",
-                  "type": "text",
-                  "uuid": "6e722a85-306e-4186-9cdf-c61286544ecc"
-                }
-              ]
-            },
-            "url": {
-              "raw": "{{baseUrl}}/v1/chat/gemini",
-              "host": ["{{baseUrl}}"],
-              "path": ["v1", "chat", "gemini"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Chat With Groq",
-          "id": "38357625-c6cbf081-3c66-4671-9868-771297b638f8",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "key": "message",
-                  "value": "What is the Capital of Ranchi",
-                  "type": "text",
-                  "uuid": "4fc74f98-dca9-41e5-8ea6-47ea58987843"
-                }
-              ]
-            },
-            "url": {
-              "raw": "{{baseUrl}}/v1/chat-with-groq",
-              "host": ["{{baseUrl}}"],
-              "path": ["v1", "chat-with-groq"]
-            }
-          },
-          "response": []
-        }
-      ],
-      "id": "38357625-f91ffc3c-ddd3-462b-83a3-1600a249aad0",
-      "description": "Here are the Some Local mind Ai model"
-    },
-    {
-      "name": "User",
-      "item": [],
-      "id": "38357625-111b6781-69a3-4a95-b7f4-5dfdf5e26977"
-    }
-  ],
-  "event": [
-    {
-      "listen": "prerequest",
-      "script": {
-        "id": "1e2f8247-4a6e-424f-991b-0e29ead8d159",
-        "type": "text/javascript",
-        "packages": {},
-        "requests": {},
-        "exec": [""]
-      }
-    },
-    {
-      "listen": "test",
-      "script": {
-        "id": "02d22adf-65c0-46f8-9e8c-ecf7bfac853c",
-        "type": "text/javascript",
-        "packages": {},
-        "requests": {},
-        "exec": [""]
-      }
-    }
-  ],
-  "variable": [
-    {
-      "key": "baseUrl",
-      "value": ""
-    }
-  ]
+	"info": {
+		"_postman_id": "38357625-fab51741-1298-49db-a9c8-5726035968f0",
+		"name": "LocalMind Api",
+		"description": "LocalMind is a free, open-source platform made for students, developers, and anyone who wants to use AI without paying expensive fees or worrying about usage limits. notionvc: d4b09e72-493d-4a46-90ca-f316ed8444af\n\nWith LocalMind, you can run powerful AI models directly on your computer (like Mistral or LLaMA) or connect to cloud models (like Gemini) using your own API key — which is stored safely on your device. You can even upload Excel files to teach your AI more things, and expose your local port so others can access your AI too! notionvc: bb99df7a-7100-4b2a-a93b-0614713c0f93",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ai model",
+			"item": [
+				{
+					"name": "Chat With Ollama",
+					"id": "38357625-19b4297e-da77-4695-9036-020dcb029cf1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "prompt",
+									"value": "Whart is C++",
+									"type": "text",
+									"uuid": "a2f22c50-e8c1-4bf5-8ff6-01aa10df657e"
+								},
+								{
+									"key": "model",
+									"value": "gemma:2b",
+									"type": "text",
+									"uuid": "6e722a85-306e-4186-9cdf-c61286544ecc"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/chat-with-ollama",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"chat-with-ollama"
+							]
+						},
+						"description": "This API lets you chat with AI models like `llama3` or `mistral` using [Ollama](https://ollama.com).  \nJust send a prompt and get a smart response from the model.\n\n> 🔧 **Before using this API, make sure the model is installed on your system using Ollama.** \n  \n\n### Example:\n\n``` bash\nollama run llama3\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "Chat WIth Gemini",
+					"id": "38357625-a7ed2e36-414f-4645-9b65-5a508ab542d6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "prompt",
+									"value": "Whart is Java",
+									"type": "text",
+									"uuid": "a2f22c50-e8c1-4bf5-8ff6-01aa10df657e"
+								},
+								{
+									"key": "model",
+									"value": "gemma:2b",
+									"type": "text",
+									"uuid": "6e722a85-306e-4186-9cdf-c61286544ecc"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/chat/gemini",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"chat",
+								"gemini"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Chat With Groq",
+					"id": "38357625-c6cbf081-3c66-4671-9868-771297b638f8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "message",
+									"value": "What is the Capital of Ranchi",
+									"type": "text",
+									"uuid": "4fc74f98-dca9-41e5-8ea6-47ea58987843"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/chat-with-groq",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"chat-with-groq"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "38357625-f91ffc3c-ddd3-462b-83a3-1600a249aad0",
+			"description": "Here are the Some Local mind Ai model"
+		},
+		{
+			"name": "User",
+			"item": [],
+			"id": "38357625-111b6781-69a3-4a95-b7f4-5dfdf5e26977"
+		},
+		{
+			"name": "New Request",
+			"id": "38357625-896a7a75-08d2-4596-83de-343ebabd7de4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "1e2f8247-4a6e-424f-991b-0e29ead8d159",
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "02d22adf-65c0-46f8-9e8c-ecf7bfac853c",
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": ""
+		}
+	]
 }
