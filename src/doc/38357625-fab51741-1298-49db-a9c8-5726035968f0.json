@@ -304,7 +304,7 @@
 			"id": "38357625-111b6781-69a3-4a95-b7f4-5dfdf5e26977"
 		},
 		{
-			"name": "New Folder",
+			"name": "Config Ai Agent",
 			"item": [
 				{
 					"name": "New Request",
@@ -327,7 +327,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"agents\": [\n    {\n      \"provider\": \"ollama\",\n      \"type\": \"on-premise\",\n      \"model\": \"gemma:2b\"\n    },\n    {\n      \"provider\": \"Google\",\n      \"type\": \"cloud\",\n      \"model\": \"gemini-pro\",\n      \"key\": \"YOUR_GOOGLE_API_KEY_HERE\"\n    }\n  ],\n  \"system_prompt\": \"You are a helpful assistant. Provide concise and informative answers. If you don't know the answer, say you don't know.\"\n}\n",
+							"raw": "{\n  \"agents\": [\n    {\n      \"provider\": \"ollama\",\n      \"type\": \"on-premise\",\n      \"model\": \"gemma:2b\"\n    },\n    {\n      \"provider\": \"Google\",\n      \"type\": \"cloud\",\n      \"model\": \"gemini-1.5-flash\",\n      \"key\": \"AIzaSyCgrRlV9gtARSctxcxYkHjxfPjIlklfxD4\"\n    }\n  ],\n  \"system_prompt\": \"You are a helpful assistant. Provide concise and informative answers. If you don't know the answer, say you don't know.\"\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
