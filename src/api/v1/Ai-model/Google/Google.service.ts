@@ -9,6 +9,7 @@ class GoogleService {
       const geminiUtils = new GeminiUtils({
         modelName: "gemini-1.5-flash",
         maxOutputTokens: 1000,
+
         temperature: 0.7,
       });
 
