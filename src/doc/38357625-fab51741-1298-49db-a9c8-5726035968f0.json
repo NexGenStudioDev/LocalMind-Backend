@@ -362,6 +362,18 @@
 				}
 			],
 			"id": "38357625-cb23174d-28bc-4b72-bc66-037a01fa1b31"
+		},
+		{
+			"name": "New Request",
+			"id": "38357625-35ba5142-9280-476d-b677-b44017c41dc8",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
 		}
 	],
 	"event": [
